@@ -50,38 +50,39 @@ df = df.sort_values(by=['dates'])
 
 #GRADIENT DESCENT MODEL
 
-theta0 = 0
-theta1 = 0
-alpha = 0.000001
-y = np.array(df['closing_price'])[-10:]
+theta0 = 1
+theta1 = 1
+alpha = 0.015
+y = np.array(df['closing_price'])[-100:-90]
 x = np.array(range(1,len(y)+1))
 m = len(y)
 print(x)
 print(y)
 
-prevJ = 0
+prevJ = 2
+J = 0
 
-for i in range(0,500):
+while abs(J - prevJ) > 1:
     temp0 = theta0
     temp1 = theta1
-    prediction = temp1 * x + temp0
+    prediction = theta1 * x + theta0
 
-    print(prediction)
+    # print(prediction)
 
     #check J function for convergence
     J = sum(np.square(prediction - y)) / 2 / m
-    if abs(J - prevJ) <= 0.1:
-        break
+    # if abs(J - prevJ) <= 0.1:
+    #     break
 
     dJ0 = sum(prediction - y) / m
     dJ1 = sum((prediction - y) * np.transpose(x)) / m
-    theta0 = temp0 - alpha * dJ0
-    theta1 = temp1 - alpha * dJ1
+    theta0 -= alpha * dJ0
+    theta1 -= alpha * dJ1
     prevJ = J
 
-print(theta0)
-print(theta1)
+print 'theta0: ', theta0
+print 'theta1: ', theta1
 
-print(theta1 * 344 + theta0)
+print 'next closing value: ', theta1 * 11 + theta0
 
 #GRADIENT DESCENT MODEL
