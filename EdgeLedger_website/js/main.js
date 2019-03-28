@@ -14,14 +14,14 @@ function initMap () {
 //Sticky Menu Background 
 window.addEventListener('scroll', function (){
   if (window.scrollY > 150) {
-    document.querySelector('#navbar').style.opacity = 0.9;
+    document.querySelector('#navbar, #clients').style.opacity = 0.9;
   } else {
-    document.querySelector('#navbar').style.opacity = 1;
+    document.querySelector('#navbar, #clients').style.opacity = 1;
   }
 });
 
 //Smooth Scrolling
-$('#navbar a, .btn').on('click', function(event) {
+$('#navbar a, .btn, #clients a, .items').on('click', function(event) {
   if (this.hash !== '') {
     event.preventDefault();
 
