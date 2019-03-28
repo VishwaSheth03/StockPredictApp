@@ -37,7 +37,7 @@ for x,y in dataForAllDays.items():
   dates.append(x)
   closing_price.append(float(y['4. close']))
 
-print(dates)
+# print(dates)
 
 df = pd.DataFrame({
   'dates' : dates,
@@ -47,3 +47,24 @@ df = pd.DataFrame({
 # print(df)
 df = df.sort_values(by=['dates'])
 print(df)
+
+#GRADIENT DESCENT MODEL
+
+theta0 = 1
+theta1 = 1
+alpha = 0.0001
+y = np.array(df['closing_price'])[-10:]
+x = np.array(range(1,len(y)+1))
+m = len(y)
+print(y)
+
+for i in range(0,15):
+    temp0 = theta0
+    temp1 = theta1
+    prediction = temp1 * x + temp0
+    theta0 = temp0 - alpha * sum(prediction - y) / m
+    theta1 = temp1 - alpha * sum((prediction - y) * np.transpose(x)) / m
+
+print('\n',theta1 * 344 + theta0)
+
+#GRADIENT DESCENT MODEL
