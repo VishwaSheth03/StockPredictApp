@@ -11,3 +11,6 @@ dataForSingleDate = dataForAllDays['2019-03-22']
 x = dataForSingleDate['1. open']
 y = x*1000
 print(y)
+
+
+#TEST TEST
