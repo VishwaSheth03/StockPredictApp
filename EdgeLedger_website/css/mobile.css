@@ -1,16 +1,16 @@
-#what .items {
+#Chase .items {
   display: block; /* Did this to clear flex */
   padding: 1rem;
 }
 
 
-#what .items .item {
+#Chase .items .item {
   display: flex;
   text-align: left;
 }
 
 /*  Position Icon */
-#what .items .item i {
+#Chase .items .item i {
   margin-right: 1.3rem;
   align-self: center;
   margin-bottom: 0;
@@ -36,11 +36,43 @@
     top: 110px;
   }
 
-  #who {
+  #Chase {
     display: block;
   }
 
-  #who .who-img {
+  #Chase .who-img {
+    display: none;
+  }
+
+  #Xero {
+    display: block;
+  }
+
+  #Xero .who-img {
+    display: none;
+  }
+
+  #Apple {
+    display: block;
+  }
+
+  #Apple .who-img {
+    display: none;
+  }
+
+  #Nintendo {
+    display: block;
+  }
+
+  #Nintendo .who-img {
+    display: none;
+  }
+
+  #Netflix {
+    display: block;
+  }
+
+  #Netflix .who-img {
     display: none;
   }
 
@@ -50,15 +82,6 @@
 
   #clients .items div:last-child {
     display: none;
-  }
-
-  #contact {
-    flex-direction: column;
-  }
-
-  #contact .map {
-    height: 200px;
-    border-top: 4px solid #333;
   }
 
   @media(max-height: 568px) {
