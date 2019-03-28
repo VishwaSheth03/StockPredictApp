@@ -28,6 +28,10 @@ p {
   overflow: hidden; /* overflow is clipped, and the rest of the content will be invisible */
 }
 
+section {
+  height: 100vh;
+}
+
 .text-center {
   text-align: center;
 }
