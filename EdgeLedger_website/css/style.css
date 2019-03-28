@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Robot', sans-serif;
+  line-height: 1.4;
+}
+
+a {
+  text-decoration: none; /* Remove underline from links */
+}
+
+p {
+  margin: 0.75rem 0; /* Top, Bottom, Left, Right */
+}
+
+
+/* Utility Classes */
+.container {
+  max-width: 1100px; /* want to restrict containers to certain width */
+  margin: auto; /* make sure it aligns in middle */
+  padding: 0 2rem;
+  overflow: hidden; /* overflow is clipped, and the rest of the content will be invisible */
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-primary {
+  color: #93cb52;
+}
+
+.bg-light {
+  background: #f4f4f4;
+  color: #333;
+}
+
+.bg-dark {
+  background: #333;
+  color: #fff;
+}
+
+.bg-primary {
+  background: #93cb52;
+  color: #fff;
+}
+
+.l-heading {
+  font-size: 4rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.1; /* To space the heading a bit higher then other text */
+}
+
+.m-heading {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.1;
+}
+
+.lead {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.py-1 { padding: 1.5rem 0;}
+.py-2 { padding: 2rem 0;}
+.py-3 { padding: 3rem 0;}
+
+.p-1 { padding: 1.5rem;}
+.p-2 { padding: 2rem;}
+.p-3 { padding: 3rem;}
+
+.btn {
+  display: inline-block;
+  color: #fff;
+  background: #93cb52;
+  padding: 0.5rem 2rem;
+  border: none; /* we are using this for a link, but if we want to add to an actual button, need to remove border */
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background: #7ab436;
+}
+
+.btn-dark {
+  background: #333;
+  color: #fff;
+}
+
+.list {
+  margin: 0.5rem 0;
+  list-style: none;
+}
+
+.list li {
+  padding: 0.5rem 0;
+  border-bottom: #444 dotted 1px;
+}
+
+/* Navbar */
+#navbar {
+  display: flex; /* Children of nav tag are flex items */
+  position: sticky; /* Want navigation to stick */
+  top: 0; /* Where we want it to stick */
+  background: #333;
+  color: #fff; /* Anything not a link is given color white */
+  justify-content: space-between; /* Aligns items horizontally */
+  z-index: 1; /* Want the navbar to always be top most layer */
+  padding: 1rem;
+}
+
+#navbar ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+#navbar ul li a {
+  color: #fff; /* gives links the color white */
+  padding: 0.75rem; /* paddings helps space the text */
+  margin: 0 0.25rem; /* only add margins to left & right */
+}
+
+#navbar ul li a:hover {
+  background: #93cb52; /* changes background of nav buttons when hovering */
+  border-radius: 5px; /* round corners of nav buttons */
+}
+
+/* Showcase */
+#showcase {
+  background: #333 url('../img/showcase.jpg') no-repeat center center/cover; /* Background color grey, with centered non-repeating image that covers the content only */
+  height: 100vh;
+  color: #fff;
+}
+
+#showcase .showcase-content {
+  display: flex;
+  flex-direction: column; /* want to change from default horizontal to vertical */
+  text-align: center; /* The following center prop. are used to center content both horiz. and vert. */
+  justify-content: center;
+  align-items: center; /* initially did not center vertically because there is no height specified for .showcase-content */
+  height: 100%; /* 100% of container, ie in this case it is 100vh */
+  padding: 0 2rem; /* Padding on left and right will bring in from sides a little bit */
+
+  /* Overlay */
+  position: absolute;
+  top: 65px; /* Need offset, otherwise overlay will start from very top behind navbar */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5)    /* red, green, blue, alpha (transparency from 0-1) */
+}
+
+/* Section: What We Do */
+#what .items {
+  display: flex;
+  padding: 1rem;
+}
+
+#what .items .item {
+  flex: 1;
+  text-align: center;
+  padding: 1rem;
+}
+
+#what .items .item i { /* do this to add background to logo */
+  background: #93cb52;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 50%; /* to give it a circular shape */
+}
+
+/* Section: Who We Are */
+#who {
+  display: flex;
+}
+
+#who div {
+  flex: 1;
+}
+
+#who .who-img {
+  background: url('../img/people.jpg') no-repeat center center/cover;
+}
+
+/* Section: Clients */
+#clients .items {
+  display: flex;
+}
+
+#clients .items img {
+  display: block;
+  margin: auto;
+  width: 60%;
+}
+
+/* Section: Contact */
+#contact {
+  display: flex;
+}
+
+#contact .map, 
+#contact .contact-form {
+  flex: 1;
+}
+
+#contact .contact-form .form-group {
+  margin: 0.75rem;
+}
+
+#contact .contact-form label {
+  display: block;
+}
+
+#contact .contact-form input,
+#contact .contact-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+}
