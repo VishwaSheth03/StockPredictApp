@@ -46,25 +46,42 @@ df = pd.DataFrame({
 
 # print(df)
 df = df.sort_values(by=['dates'])
-print(df)
+# print(df)
 
 #GRADIENT DESCENT MODEL
 
-theta0 = 1
-theta1 = 1
-alpha = 0.0001
+theta0 = 0
+theta1 = 0
+alpha = 0.000001
 y = np.array(df['closing_price'])[-10:]
 x = np.array(range(1,len(y)+1))
 m = len(y)
+print(x)
 print(y)
 
-for i in range(0,15):
+prevJ = 0
+
+for i in range(0,500):
     temp0 = theta0
     temp1 = theta1
     prediction = temp1 * x + temp0
-    theta0 = temp0 - alpha * sum(prediction - y) / m
-    theta1 = temp1 - alpha * sum((prediction - y) * np.transpose(x)) / m
 
-print('\n',theta1 * 344 + theta0)
+    print(prediction)
+
+    #check J function for convergence
+    J = sum(np.square(prediction - y)) / 2 / m
+    if abs(J - prevJ) <= 0.1:
+        break
+
+    dJ0 = sum(prediction - y) / m
+    dJ1 = sum((prediction - y) * np.transpose(x)) / m
+    theta0 = temp0 - alpha * dJ0
+    theta1 = temp1 - alpha * dJ1
+    prevJ = J
+
+print(theta0)
+print(theta1)
+
+print(theta1 * 344 + theta0)
 
 #GRADIENT DESCENT MODEL
