@@ -51,7 +51,7 @@ df = df.sort_values(by=['dates'])
 #GRADIENT DESCENT MODEL
 
 alpha = 0.015
-y = np.array(df['closing_price'])[-100:-90]
+y = np.array(df['closing_price'])[-10:]
 x = np.array(range(1,len(y)+1))
 day = 11
 m = len(y)
