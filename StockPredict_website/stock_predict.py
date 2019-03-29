@@ -83,6 +83,19 @@ def gradient_descent(alpha, x, y, m, day):
 
   return theta1 * day + theta0
 
-print 'next closing value: ', round(gradient_descent(alpha, x, y, m, day), 2)
+value = 'next closing value: ', round(gradient_descent(alpha, x, y, m, day), 2)
 
 #GRADIENT DESCENT MODEL
+
+from flask import Flask, render_template             
+app = Flask(__name__)
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+@app.route("/")
+def about():
+    return render_template("style.css")
+
+if __name__ == "__main__":
+    app.run(debug=True)
