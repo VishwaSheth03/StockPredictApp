@@ -93,9 +93,5 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
-@app.route("/")
-def about():
-    return render_template("style.css")
-
 if __name__ == "__main__":
     app.run(debug=True)
