@@ -23,13 +23,13 @@ dataForAllDays = result['Time Series (Daily)']
 #     "4. close": "188.4400",
 #     "5. volume": "7570388"
 # }
-dataForSingleDate = dataForAllDays['2019-03-22']
-opening = dataForSingleDate['1. open']
-high = dataForSingleDate['2. high']
-low = dataForSingleDate['3. low']
-average = (float(high) + float(low))/2
-close = dataForSingleDate['4. close']
-volume = dataForSingleDate['5. volume']
+# dataForSingleDate = dataForAllDays['2019-03-22']
+# opening = dataForSingleDate['1. open']
+# high = dataForSingleDate['2. high']
+# low = dataForSingleDate['3. low']
+# average = (float(high) + float(low))/2
+# close = dataForSingleDate['4. close']
+# volume = dataForSingleDate['5. volume']
 
 dates = []
 closing_price = []
@@ -50,19 +50,20 @@ df = df.sort_values(by=['dates'])
 
 #GRADIENT DESCENT MODEL
 
-theta0 = 1
-theta1 = 1
 alpha = 0.015
 y = np.array(df['closing_price'])[-100:-90]
 x = np.array(range(1,len(y)+1))
+day = 11
 m = len(y)
-print(x)
-print(y)
 
-prevJ = 2
-J = 0
+def gradient_descent(alpha, x, y, m, day):
+  theta0 = 1
+  theta1 = 1
 
-while abs(J - prevJ) > 1:
+  prevJ = 2
+  J = 0
+
+  while abs(J - prevJ) > 1:
     temp0 = theta0
     temp1 = theta1
     prediction = theta1 * x + theta0
@@ -80,9 +81,8 @@ while abs(J - prevJ) > 1:
     theta1 -= alpha * dJ1
     prevJ = J
 
-print 'theta0: ', theta0
-print 'theta1: ', theta1
+  return theta1 * day + theta0
 
-print 'next closing value: ', theta1 * 11 + theta0
+print 'next closing value: ', gradient_descent(alpha, x, y, m, day)
 
 #GRADIENT DESCENT MODEL
