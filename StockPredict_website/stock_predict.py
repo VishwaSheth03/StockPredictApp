@@ -69,11 +69,11 @@ def getStock(stock_name, api_key):
 
   return round(gradient_descent(alpha, x, y, m, day), 2)
 
-value_aapl = getStock('AAPL', '9GGI4HNYB4X1WMIJ')
-value_asxxro = getStock('ASX:XRO', 'DTOG3W8BLRLL3MQ3')
-value_chase = getStock('JPM', 'GZYB3BJNXMLWVDWY')
-value_nintendo = getStock('TYO', 'RXCVZK9NHJY1PEMV')
-value_netflix = getStock('NFLX', '58SXCV92ZE1JUZ62')
+value_aapl = getStock('AAPL', 'GZYB3BJNXMLWVDWY')
+value_asxxro = 0#getStock('ASX:XRO', '58SXCV92ZE1JUZ62')
+value_chase = 0#getStock('JPM', '58SXCV92ZE1JUZ62')
+value_nintendo = 0#getStock('TYO', '58SXCV92ZE1JUZ62')
+value_netflix = 0#getStock('NFLX', '58SXCV92ZE1JUZ62')
 
 
 from flask import Flask, render_template             
