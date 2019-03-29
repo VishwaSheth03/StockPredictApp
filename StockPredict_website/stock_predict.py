@@ -36,12 +36,16 @@ def gradient_descent(alpha, x, y, m, day):
 
   return theta1 * day + theta0
 
-def getStock(stock_name, api_key): 
+def apiCall(stock_name, api_key):
   r = requests.get('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + stock_name + '&outputsize=full&apikey=' + api_key)
   json_data = json.loads(r.text)
-
   result = r.json()
-  dataForAllDays = result['Time Series (Daily)'] 
+
+  return result['Time Series (Daily)']
+
+def getStock(stock_name, api_key): 
+  dataForAllDays = apiCall(stock_name, api_key)
+
   dates = []
   closing_price = []
   for x,y in dataForAllDays.items(): 
@@ -67,20 +71,19 @@ def getStock(stock_name, api_key):
   day = 11
   m = len(y)
 
-  return round(gradient_descent(alpha, x, y, m, day), 2)
+  return round(gradient_descent(alpha, x, y, m, day), 2), dataForAllDays
 
-value_aapl = getStock('AAPL', 'GZYB3BJNXMLWVDWY')
-value_asxxro = 0#getStock('ASX:XRO', '58SXCV92ZE1JUZ62')
-value_chase = 0#getStock('JPM', '58SXCV92ZE1JUZ62')
-value_nintendo = 0#getStock('TYO', '58SXCV92ZE1JUZ62')
-value_netflix = 0#getStock('NFLX', '58SXCV92ZE1JUZ62')
-
+value_aapl, array_aapl = getStock('AAPL', '9GGI4HNYB4X1WMIJ')
+value_asxxro, array_asxxro = getStock('ASX:XRO', 'DTOG3W8BLRLL3MQ3')
+value_chase, array_chase = getStock('JPM', 'GZYB3BJNXMLWVDWY')
+value_nintendo, array_nintendo = getStock('TYO', 'RXCVZK9NHJY1PEMV')
+value_netflix, array_netflix = getStock('NFLX', '58SXCV92ZE1JUZ62')
 
 from flask import Flask, render_template             
 app = Flask(__name__)
 @app.route("/")
 def home():
-    return render_template("index.html", apple=value_aapl, xero=value_asxxro, chase=value_chase, nintendo=value_nintendo, netflix=value_netflix)
+    return render_template("index.html", apple=value_aapl, xero=value_asxxro, chase=value_chase, nintendo=value_nintendo, netflix=value_netflix, arr_apple=array_aapl, arr_xero=array_asxxro, arr_chase=array_chase, arr_nintendo=array_nintendo, arr_netflix=array_netflix)
 
 if __name__ == "__main__":
     app.run(debug=True)

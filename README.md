@@ -18,3 +18,8 @@ NumPy
 ```terminal
 pip install numpy
 ```
+
+Flask
+```terminal
+pip install Flask --user
+```
