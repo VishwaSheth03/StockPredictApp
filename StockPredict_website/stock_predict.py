@@ -6,55 +6,8 @@ import numpy as np
 import pandas as pd
 
 API_KEY = '58SXCV92ZE1JUZ62'
+
 STOCK_NAME = 'AAPL'
-
-r = requests.get('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + STOCK_NAME + '&outputsize=full&apikey=' + API_KEY)
-json_data = json.loads(r.text)
-# print(json_data)
-# print(json_data['Time Series (Daily)']['2019-03-22']['4. close'])
-
-result = r.json()
-dataForAllDays = result['Time Series (Daily)'] 
-#     key: '2019-03-22' 
-#     value: {
-#     "1. open": "188.9500",
-#     "2. high": "189.5500",
-#     "3. low": "187.8200",
-#     "4. close": "188.4400",
-#     "5. volume": "7570388"
-# }
-# dataForSingleDate = dataForAllDays['2019-03-22']
-# opening = dataForSingleDate['1. open']
-# high = dataForSingleDate['2. high']
-# low = dataForSingleDate['3. low']
-# average = (float(high) + float(low))/2
-# close = dataForSingleDate['4. close']
-# volume = dataForSingleDate['5. volume']
-
-dates = []
-closing_price = []
-for x,y in dataForAllDays.items(): 
-  dates.append(x)
-  closing_price.append(float(y['4. close']))
-
-# print(dates)
-
-df = pd.DataFrame({
-  'dates' : dates,
-  'closing_price' : closing_price,
-})
-
-# print(df)
-df = df.sort_values(by=['dates'])
-# print(df)
-
-#GRADIENT DESCENT MODEL
-
-alpha = 0.015
-y = np.array(df['closing_price'])[-10:]
-x = np.array(range(1,len(y)+1))
-day = 11
-m = len(y)
 
 def gradient_descent(alpha, x, y, m, day):
   theta0 = 1
@@ -83,15 +36,48 @@ def gradient_descent(alpha, x, y, m, day):
 
   return theta1 * day + theta0
 
-value = round(gradient_descent(alpha, x, y, m, day), 2)
+def getStock(stock_name): 
+  r = requests.get('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + stock_name + '&outputsize=full&apikey=' + API_KEY)
+  json_data = json.loads(r.text)
 
-#GRADIENT DESCENT MODEL
+  result = r.json()
+  dataForAllDays = result['Time Series (Daily)'] 
+  dates = []
+  closing_price = []
+  for x,y in dataForAllDays.items(): 
+    dates.append(x)
+    closing_price.append(float(y['4. close']))
+
+  # print(dates)
+
+  df = pd.DataFrame({
+    'dates' : dates,
+    'closing_price' : closing_price,
+  })
+
+  # print(df)
+  df = df.sort_values(by=['dates'])
+  # print(df)
+
+  #GRADIENT DESCENT MODEL
+
+  alpha = 0.015
+  y = np.array(df['closing_price'])[-10:]
+  x = np.array(range(1,len(y)+1))
+  day = 11
+  m = len(y)
+
+  return round(gradient_descent(alpha, x, y, m, day), 2)
+
+value_aapl = getStock('AAPL')
+value_asxxro = getStock('ASX:XRO')
+
 
 from flask import Flask, render_template             
 app = Flask(__name__)
 @app.route("/")
 def home():
-    return render_template("index.html", value=value)
+    return render_template("index.html", apple=value_aapl, xero=value_asxxro, )
 
 if __name__ == "__main__":
     app.run(debug=True)
