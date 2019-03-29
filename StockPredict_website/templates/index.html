@@ -8,6 +8,50 @@
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link rel="stylesheet" href="../static/css/style.css">
   <title>StockPredict Financial | Accounting & Investment</title>
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['line']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number');
+      data.addColumn('number');
+
+      data.addRows([
+        [1, 41.8],
+        [2, 32.4],
+        [3, 25.7],
+        [4, 10.5],
+        [5, 10.4],
+        [6, 7.7],
+        [7, 9.6],
+        [8, 10.6],
+        [9, 4.8],
+        [10, 11.6],
+        [11, 4.7],
+        [12, 5.2],
+        [13, 3.6],
+        [14, {{apple}}]
+      ]);
+
+      var options = {
+        chart: {
+          title: 'Apple Closing Stock Chart',
+          subtitle: '(USD)'
+        },
+        width: 500,
+        height: 500
+      };
+
+      var chart = new google.charts.Line(document.getElementById('linechart_material'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+    </script>
+
 </head>
 
 <body id="home">
@@ -95,18 +139,17 @@
 
   <!-- Section: Apple -->
   <section id="Apple">
-    <div class="who-img"></div>
+    <div id="linechart_material" style="width: 500px; height: 500"></div>
     <div class="who-text bg-dark p-2">
       <h2 class="m-heading"><span class="text-primary">Apple</span></h2>
       <p>overpriced products for boujee ppl. The estimated stock price for tomorrow is {{apple}} USD</p>
       <h3>Our Team</h3>
       <ul class="list ">
-        <li>Dwight Schrute: CEO</li>
-        <li>Phoebe Buffay: CFO</li>
-        <li>Monica Geller: Investment Manager</li>
-        <li>Rachel Green: Public Relations Manager</li>
-        <li>Angela Martin: Senior Accountant</li>
-        <li>Kevin Malone: Lead Accountant</li>
+        <li>CEO: Tim Cook</li>
+        <strong>Tomorrow's Predicted Stock Prices</strong>
+        <ul style="padding-left:40px;">
+          <li>Closing Value: ${{apple}}</li>
+        </ul>
       </ul>
     </div>
   </section>
