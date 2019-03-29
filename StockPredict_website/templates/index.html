@@ -17,32 +17,30 @@
     function drawChart() {
 
       var data = new google.visualization.DataTable();
-      data.addColumn('number', 'Day');
-      data.addColumn('number');
       data.addColumn('number');
       data.addColumn('number');
 
       data.addRows([
-        [1,  37.8, 80.8, 41.8],
-        [2,  30.9, 69.5, 32.4],
-        [3,  25.4,   57, 25.7],
-        [4,  11.7, 18.8, 10.5],
-        [5,  11.9, 17.6, 10.4],
-        [6,   8.8, 13.6,  7.7],
-        [7,   7.6, 12.3,  9.6],
-        [8,  12.3, 29.2, 10.6],
-        [9,  16.9, 42.9, 14.8],
-        [10, 12.8, 30.9, 11.6],
-        [11,  5.3,  7.9,  4.7],
-        [12,  6.6,  8.4,  5.2],
-        [13,  4.8,  6.3,  3.6],
-        [14,  4.2,  6.2,  {{value}}]
+        [1, 41.8],
+        [2, 32.4],
+        [3, 25.7],
+        [4, 10.5],
+        [5, 10.4],
+        [6, 7.7],
+        [7, 9.6],
+        [8, 10.6],
+        [9, 4.8],
+        [10, 11.6],
+        [11, 4.7],
+        [12, 5.2],
+        [13, 3.6],
+        [14, {{apple}}]
       ]);
 
       var options = {
         chart: {
-          title: 'Box Office Earnings in First Two Weeks of Opening',
-          subtitle: 'in millions of dollars (USD)'
+          title: 'Apple Closing Stock Chart',
+          subtitle: '(USD)'
         },
         width: 500,
         height: 500
@@ -141,11 +139,10 @@
 
   <!-- Section: Apple -->
   <section id="Apple">
-    <div id="linechart_material" style="width: 500px; height: auto"></div>
+    <div id="linechart_material" style="width: 500px; height: 500"></div>
     <div class="who-text bg-dark p-2">
       <h2 class="m-heading"><span class="text-primary">Apple</span></h2>
       <p>overpriced products for boujee ppl</p>
-      <h3>Our Team</h3>
       <ul class="list ">
         <li>CEO: Tim Cook</li>
         <strong>Tomorrow's Predicted Stock Prices</strong>
