@@ -36,8 +36,8 @@ def gradient_descent(alpha, x, y, m, day):
 
   return theta1 * day + theta0
 
-def getStock(stock_name): 
-  r = requests.get('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + stock_name + '&outputsize=full&apikey=' + API_KEY)
+def getStock(stock_name, api_key): 
+  r = requests.get('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + stock_name + '&outputsize=full&apikey=' + api_key)
   json_data = json.loads(r.text)
 
   result = r.json()
@@ -69,15 +69,18 @@ def getStock(stock_name):
 
   return round(gradient_descent(alpha, x, y, m, day), 2)
 
-value_aapl = getStock('AAPL')
-value_asxxro = getStock('ASX:XRO')
+value_aapl = getStock('AAPL', '9GGI4HNYB4X1WMIJ')
+value_asxxro = getStock('ASX:XRO', 'DTOG3W8BLRLL3MQ3')
+value_chase = getStock('JPM', 'GZYB3BJNXMLWVDWY')
+value_nintendo = getStock('TYO', 'RXCVZK9NHJY1PEMV')
+value_netflix = getStock('NFLX', '58SXCV92ZE1JUZ62')
 
 
 from flask import Flask, render_template             
 app = Flask(__name__)
 @app.route("/")
 def home():
-    return render_template("index.html", apple=value_aapl, xero=value_asxxro, )
+    return render_template("index.html", apple=value_aapl, xero=value_asxxro, chase=value_chase, nintendo=value_nintendo, netflix=value_netflix)
 
 if __name__ == "__main__":
     app.run(debug=True)
