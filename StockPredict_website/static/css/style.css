@@ -28,6 +28,10 @@ p {
   overflow: hidden; /* overflow is clipped, and the rest of the content will be invisible */
 }
 
+section {
+  height: 93.4vh;
+}
+
 .text-center {
   text-align: center;
 }
@@ -158,69 +162,105 @@ p {
   background-color: rgba(0,0,0,0.5)    /* red, green, blue, alpha (transparency from 0-1) */
 }
 
-/* Section: What We Do */
-#what .items {
+/* Section: Chase We Do */
+#Chase .items {
   display: flex;
   padding: 1rem;
 }
 
-#what .items .item {
+#Chase .items .item {
   flex: 1;
   text-align: center;
   padding: 1rem;
 }
 
-#what .items .item i { /* do this to add background to logo */
+#Chase .items .item i { /* do this to add background to logo */
   background: #93cb52;
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 50%; /* to give it a circular shape */
 }
 
-/* Section: Who We Are */
-#who {
+/* Section: Chase */
+#Chase {
   display: flex;
 }
 
-#who div {
+#Chase div {
   flex: 1;
 }
 
-#who .who-img {
+#Chase .who-img {
   background: url('../img/people.jpg') no-repeat center center/cover;
 }
+
+
+/* Section: Xero */
+#Xero {
+  display: flex;
+}
+
+#Xero div {
+  flex: 1;
+}
+
+#Xero .who-img {
+  background: url('../img/people.jpg') no-repeat center center/cover;
+}
+
+
+/* Section: Apple */
+#Apple {
+  display: flex;
+}
+
+#Apple div {
+  flex: 1;
+}
+
+#Apple .who-img {
+  background: url('../img/people.jpg') no-repeat center center/cover;
+}
+
+
+/* Section: Nintendo */
+#Nintendo {
+  display: flex;
+}
+
+#Nintendo div {
+  flex: 1;
+}
+
+#Nintendo .who-img {
+  background: url('../img/people.jpg') no-repeat center center/cover;
+}
+
+
+/* Section: Netflix */
+#Netflix {
+  display: flex;
+}
+
+#Netflix div {
+  flex: 1;
+}
+
+#Netflix .who-img {
+  background: url('../img/people.jpg') no-repeat center center/cover;
+}
+
 
 /* Section: Clients */
 #clients .items {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: space-around
 }
 
 #clients .items img {
   display: block;
   margin: auto;
-  width: 60%;
-}
-
-/* Section: Contact */
-#contact {
-  display: flex;
-}
-
-#contact .map, 
-#contact .contact-form {
-  flex: 1;
-}
-
-#contact .contact-form .form-group {
-  margin: 0.75rem;
-}
-
-#contact .contact-form label {
-  display: block;
-}
-
-#contact .contact-form input,
-#contact .contact-form textarea {
-  width: 100%;
-  padding: 0.5rem;
+  width: 70%;
 }

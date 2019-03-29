@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <title>StockPredict Financial | Accounting & Investment</title>
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="../static/js/graphs.js"></script>
+</head>
+
+<body id="home">
+  <!-- Navbar -->
+  <nav id="navbar">
+    <h1 class="logo">
+      <span class="text-primary">
+        <i class="fas fa-book-open"></i> Stock</span>Predict
+    </h1>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#Chase">Chase Bank</a></li>
+      <li><a href="#Xero">Xero</a></li>
+      <li><a href="#Apple">Apple</a></li>
+      <li><a href="#Nintendo">Nintendo</a></li>
+      <li><a href="#Netflix">Netflix</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header: Showcase -->
+  <header id="showcase">
+    <div class="showcase-content">
+      <h1 class="l-heading">
+        Insert title here when done
+      </h1>
+      <p class="lead">
+        The ML idea where we ended up learning how to use this machine!
+      </p>
+    </div>
+  </header>
+
+  <!-- Section: Clients -->
+  <div id="clients" class="py-1">
+    <div class="container">
+      <h2 class="m-heading text-center"><span class="text-primary">Our</span> Clients</h2>
+      <div class="items py-1">
+        <div><a href="#Chase"><img src="../static/img/logos/chase.png" alt="Client"></a></div>
+        <div><a href="#Xero"><img src="../static/img/logos/xero.png" alt="Client"></a></div>
+        <div><a href="#Apple"><img src="../static/img/logos/apple.png" alt="Client"></a></div>
+        <div><a href="#Nintendo"><img src="../static/img/logos/nintendo.png" alt="Client"></a></div>
+        <div><a href="#Netflix"><img src="../static/img/logos/netflix.png" alt="Client"></a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: Chase -->
+  <section id="Chase">
+      <div id="chaselinechart_material" style="width: 500px; height: 500"></div>
+    <div class="who-text bg-dark p-2">
+      <h2 class="m-heading"><span class="text-primary">Chase Bank</span></h2>
+      <p>J.P. Morgan Chase Bank, N.A., doing business as Chase Bank, is a national bank headquartered in Manhattan, New York City, 
+        that constitutes the consumer and commercial banking subsidiary of the U.S. multinational banking and financial services 
+        holding company, JPMorgan Chase & Co.</p>
+        <ul class="list ">
+          <li>CEO: Jamie Dimon</li>
+          <strong>Tomorrow's Predicted Stock Prices</strong>
+          <ul style="padding-left:40px;">
+            <li>Closing Value: ${{chase}} USD</li>
+          </ul>
+        </ul>
+    </div>
+  </section>
+
+  <!-- Section: Xero -->
+  <section id="Xero">
+      <div id="xerolinechart_material" style="width: 500px; height: 500"></div>
+    <div class="who-text bg-dark p-2">
+      <h2 class="m-heading"><span class="text-primary">Xero</span></h2>
+      <p>Xero is a New Zealand domiciled public software company that offers a cloud-based accounting software platform for small 
+        and medium-sized businesses. The company has offices in New Zealand, Australia, the United Kingdom, the United States, 
+        Canada, Asia and South Africa.</p>
+        <ul class="list ">
+          <li>CEO: Steve Vamos</li>
+          <strong>Tomorrow's Predicted Stock Prices</strong>
+          <ul style="padding-left:40px;">
+            <li>Closing Value: ${{xero}} AUD</li>
+          </ul>
+        </ul>
+    </div>
+  </section>
+
+  <!-- Section: Apple -->
+  <section id="Apple">
+    <div id="applelinechart_material" style="width: 500px; height: 500"></div>
+    <div class="who-text bg-dark p-2">
+      <h2 class="m-heading"><span class="text-primary">Apple</span></h2>
+      <p>overpriced products for boujee ppl</p>
+      <ul class="list ">
+        <li>CEO: Tim Cook</li>
+        <strong>Tomorrow's Predicted Stock Prices</strong>
+        <ul style="padding-left:40px;">
+          <li>Closing Value: ${{apple}} USD</li>
+        </ul>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Section: Nintendo -->
+  <section id="Nintendo">
+      <div id="nintendolinechart_material" style="width: 500px; height: 500"></div>
+    <div class="who-text bg-dark p-2">
+      <h2 class="m-heading"><span class="text-primary">Nintendo</span></h2>
+      <p>Nintendo Co., Ltd. is a Japanese multinational consumer electronics and video game company headquartered in Kyoto</p>
+      <ul class="list ">
+          <li>CEO: Shuntaro Furukawa</li>
+          <strong>Tomorrow's Predicted Stock Prices</strong>
+          <ul style="padding-left:40px;">
+            <li>Closing Value: ${{nintendo}} JPY</li>
+          </ul>
+        </ul>
+    </div>
+  </section>
+
+  <!-- Section: Netflix -->
+  <section id="Netflix">
+      <div id="netflixlinechart_material" style="width: 500px; height: 500"></div>
+    <div class="who-text bg-dark p-2">
+      <h2 class="m-heading"><span class="text-primary">Netflix</span></h2>
+      <p>Netflix, Inc. is an American media-services provider headquartered in Los Gatos, California, founded in 1997 by Reed 
+        Hastings and Marc Randolph in Scotts Valley, California.</p>
+        <ul class="list ">
+          <li>CEO: Reed Hastings</li>
+          <strong>Tomorrow's Predicted Stock Prices</strong>
+          <ul style="padding-left:40px;">
+            <li>Closing Value: ${{netflix}} USD</li>
+          </ul>
+        </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="main-footer" class="bg-dark text-center py-1">
+    <p>Copyright &copy; 2019, StockPredict, All Rights Reserved</p>
+  </footer>
+
+  <!-- jQuery CDN -->
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+  <!-- Local JS File -->
+  <script src="../static/js/main.js"></script>
+</body>
+</html>
