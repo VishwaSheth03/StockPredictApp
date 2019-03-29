@@ -83,6 +83,6 @@ def gradient_descent(alpha, x, y, m, day):
 
   return theta1 * day + theta0
 
-print 'next closing value: ', gradient_descent(alpha, x, y, m, day)
+print 'next closing value: ', round(gradient_descent(alpha, x, y, m, day), 2)
 
 #GRADIENT DESCENT MODEL
